@@ -51,6 +51,20 @@ gulp.task("copy-assets", () => {
                 .on("end", browsersync.reload);
 });
 
+gulp.task("dev", () => {
+    browsersync.init({
+      server: {
+          baseDir: "./src",
+          serveStaticOptions: {
+              extensions: ["html"]
+          }
+      },
+      port: 3000,
+		  notify: true
+    });
+
+});
+
 gulp.task("watch", () => {
     browsersync.init({
         server: {
