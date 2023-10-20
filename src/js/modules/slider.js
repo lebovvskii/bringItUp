@@ -28,8 +28,8 @@ export class Slider {
             btn.addEventListener('click', () => {
                 this.plusSlides(1);
             });
-
-            btn.parentNode.previousElementSibling.addEventListener('click', (e) => {
+            const homeBtn = btn.parentNode.previousElementSibling
+            homeBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 this.slideIndex = 1;
                 this.showSlides(this.slideIndex);
