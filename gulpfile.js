@@ -51,19 +51,6 @@ gulp.task("copy-assets", () => {
                 .on("end", browsersync.reload);
 });
 
-gulp.task("dev", () => {
-    browsersync.init({
-      server: {
-          baseDir: "./src",
-          serveStaticOptions: {
-              extensions: ["html"]
-          }
-      },
-      port: 3000,
-		  notify: true
-    });
-
-});
 
 gulp.task("watch", () => {
     browsersync.init({
@@ -89,7 +76,7 @@ gulp.task("build-prod-js", () => {
                 .pipe(webpack({
                     mode: 'production',
                     output: {
-                        filename: 'script.js'
+                        filename: 'sctipt.js'
                     },
                     module: {
                         rules: [
