@@ -7,7 +7,6 @@ export class Difference {
         this.newCounter = 0;
     }
         
-
     bindTriggers() {
         const plusNewItems = this.newOfficer.querySelector('.plus');
         const plusOldItems = this.oldOfficer.querySelector('.plus');
