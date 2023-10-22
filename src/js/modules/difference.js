@@ -25,16 +25,15 @@ export class Difference {
 
     showItems(column, counter) {
         const items = column.querySelectorAll(this.items)
-        if (counter !== (items.length - 2)) {
-            const item = items[counter];
+        const item = items[counter];
+       
+        if (item) {
             item.style.display = "flex";
-            item.classList.add('animated', 'fadeInUp')
+            item.classList.add('animated', 'fadeInUp');
             counter++;
-        } else {
-            const item = items[counter];
-            item.style.display = "flex";
-            item.classList.add('animated', 'fadeInUp')
-            items[items.length - 1].remove()
+            if (counter === items.length - 1) {
+                items[items.length - 1].remove();
+            }
         }
         return counter;
     }
