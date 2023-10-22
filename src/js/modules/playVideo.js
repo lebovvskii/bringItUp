@@ -30,8 +30,8 @@ export class VideoPlayer {
             height: '100%',
             width: '100%',
             videoId
-        })
-        this.overlay.style.display = 'flex'
+        });
+        this.overlay.style.display = 'flex';
     }
 
     init() {
