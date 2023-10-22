@@ -1,4 +1,4 @@
-import { MiniSlider,  MainSlider } from "./modules"
+import { MiniSlider,  MainSlider, VideoPlayer } from "./modules"
 
 window.addEventListener('DOMContentLoaded', () => {
     const slider = new MainSlider({
@@ -35,4 +35,7 @@ window.addEventListener('DOMContentLoaded', () => {
         autoplay: true
     });
     feedSlider.init()
+
+    const player = new VideoPlayer('.showup .play', '.overlay');
+    player.init();
 }); 
