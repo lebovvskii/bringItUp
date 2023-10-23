@@ -28,17 +28,17 @@ export class Difference {
     showItems(column, counter) {
         try {
             const items = column.querySelectorAll(this.items)
-        } catch (err) {}
-        const item = items[counter];
-        if (item) {
-            item.style.display = "flex";
-            item.classList.add('animated', 'fadeInUp');
-            counter++;
-            if (counter === items.length - 1) {
-                items[items.length - 1].remove();
+            const item = items[counter];
+            if (item) {
+                item.style.display = "flex";
+                item.classList.add('animated', 'fadeInUp');
+                counter++;
+                if (counter === items.length - 1) {
+                    items[items.length - 1].remove();
+                }
             }
-        }
-        return counter;
+            return counter;
+        } catch (err) {}
     }
 
     hideItemsColumn(column) {

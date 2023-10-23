@@ -33,40 +33,43 @@ export class MainSlider extends Slider {
 
     plusSlides(n) {
         this.showSlides(this.slideIndex += n);
-    }; 
+    };
+
+    bindTriggers() {      
+        this.btns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                this.plusSlides(1);
+            });
+            const homeBtn = btn.parentNode.previousElementSibling
+            homeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.slideIndex = 1;
+                this.showSlides(this.slideIndex);
+            });
+        });
+        const prevModuleArrows = document.querySelectorAll('.prevmodule')
+        const nextModuleArrows = document.querySelectorAll('.nextmodule')
+        prevModuleArrows.forEach(arrow => {
+            arrow.addEventListener('click', () => {
+                this.plusSlides(-1)
+            })
+        })
+        nextModuleArrows.forEach(arrow => {
+            arrow.addEventListener('click', (e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                this.plusSlides(1)
+            })
+        })
+    }
 
     render() {
         if (this.container) {
             try {
                 this.hanson = document.querySelector('.hanson')
             } catch(err) {}
-    
-            this.btns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    this.plusSlides(1);
-                });
-                const homeBtn = btn.parentNode.previousElementSibling
-                homeBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    this.slideIndex = 1;
-                    this.showSlides(this.slideIndex);
-                });
-            });   
+            this.bindTriggers();
             this.showSlides(this.slideIndex);
-            const prevModuleArrows = document.querySelectorAll('.prevmodule')
-            const nextModuleArrows = document.querySelectorAll('.next  module')
-            prevModuleArrows.forEach(arrow => {
-                arrow.addEventListener('click', () => {
-                    this.plusSlides(-1)
-                })
-            })
-            nextModuleArrows.forEach(arrow => {
-                arrow.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    e.preventDefault();
-                    this.plusSlides(1)
-                })
-            })
         }
     } 
 }
