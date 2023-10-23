@@ -18,26 +18,24 @@
             let val;
             let i = 0; 
             const target = e.target;
-            if (target) {
-                val = target.value.replace(/\D/g, '')
-                if (1 >= val.length) {
-                    val = 1;  
-                }
-                target.value = phoneMask.replace(/./g, (a) => {
-                    return  /[_\d]/.test(a) && i < val.length
-                            ? val.charAt(i++)
-                            : i >= val.length
-                            ? ''
-                            : a
-                });
+            val = target.value.replace(/\D/g, '')
+            if (1 >= val.length) {
+                val = 1;  
+            }
+            target.value = phoneMask.replace(/./g, (a) => {
+                return  /[_\d]/.test(a) && i < val.length
+                        ? val.charAt(i++)
+                        : i >= val.length
+                        ? ''
+                        : a
+            });
 
-                if ((event.type === 'input')) {
-                    if (target.value.length == 2) {
-                        target.value = ''; 
-                    } else {
-                        setCursorPosition(target.value.length, target)
-                    }
-                };
+            if ((event.type === 'input')) {
+                if (target.value.length == 2) {
+                    target.value = ''; 
+                } else {
+                    setCursorPosition(target.value.length, target)
+                }
             };
         };
         const inputs = document.querySelectorAll('[name="phone"]');
