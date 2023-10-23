@@ -1,4 +1,4 @@
- export class Form {
+export class Form {
     constructor(formSelector) {
         this.forms = document.querySelectorAll(formSelector);
         this.inputs = document.querySelectorAll('input');
