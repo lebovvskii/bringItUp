@@ -36,7 +36,7 @@ export class MainSlider extends Slider {
     }; 
 
     render() {
-        try {
+        if (this.container) {
             try {
                 this.hanson = document.querySelector('.hanson')
             } catch(err) {}
@@ -53,6 +53,20 @@ export class MainSlider extends Slider {
                 });
             });   
             this.showSlides(this.slideIndex);
-        } catch (err) {}
+            const prevModuleArrows = document.querySelectorAll('.prevmodule')
+            const nextModuleArrows = document.querySelectorAll('.next  module')
+            prevModuleArrows.forEach(arrow => {
+                arrow.addEventListener('click', () => {
+                    this.plusSlides(-1)
+                })
+            })
+            nextModuleArrows.forEach(arrow => {
+                arrow.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    this.plusSlides(1)
+                })
+            })
+        }
     } 
 }

@@ -6,6 +6,12 @@ window.addEventListener('DOMContentLoaded', () => {
         btns: '.next'
     });
     slider.render();
+  
+    const modulesMainSlider = new MainSlider({
+        container: '.moduleapp ',
+        btns: '.next   '
+    })
+    modulesMainSlider.render();
     
     const miniSlider = new MiniSlider({
         container: '.showup__content-slider',
