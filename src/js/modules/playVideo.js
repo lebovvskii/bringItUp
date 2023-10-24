@@ -14,7 +14,6 @@ export class VideoPlayer {
                 const blockedElement = btn.closest('.module__video-item').nextElementSibling; 
                 if (index %  2 == 0) {
                     blockedElement.setAttribute('data-disabled', 'true')
-                    console.log('это второй блок')
                 }  
             } catch (err) {   }
                 

@@ -1,4 +1,4 @@
-import { MiniSlider,  MainSlider, VideoPlayer, Difference, Form } from "./modules"
+import { MiniSlider,  MainSlider, VideoPlayer, Difference, Form, ShowInfo   } from "./modules"
 
 window.addEventListener('DOMContentLoaded', () => {
     const slider = new MainSlider({
@@ -47,10 +47,12 @@ window.addEventListener('DOMContentLoaded', () => {
     const modulesPlayer = new VideoPlayer('.module__video-item .play', '.overlay');
     modulesPlayer.init();  
 
-
     const difference = new Difference('.officerold', '.officernew', '.officer__card-item')
     difference.init()
 
     const form = new Form('.form')
     form.init()
+
+    const showInfo = new ShowInfo('.plus__content');
+    showInfo.init()
 }); 
